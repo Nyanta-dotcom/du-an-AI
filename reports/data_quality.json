@@ -1,0 +1,87 @@
+{
+  "train_shape": [
+    27455,
+    785
+  ],
+  "test_shape": [
+    7172,
+    785
+  ],
+  "missing_values": {
+    "train": 0,
+    "test": 0
+  },
+  "duplicate_rows": {
+    "train": 0,
+    "test": 0,
+    "train_test_overlap": 0
+  },
+  "labels_present": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "labels_missing": [
+    9,
+    25
+  ],
+  "pixel_range": [
+    0,
+    255
+  ],
+  "class_count_train": {
+    "A": 1126,
+    "B": 1010,
+    "C": 1144,
+    "D": 1196,
+    "E": 957,
+    "F": 1204,
+    "G": 1090,
+    "H": 1013,
+    "I": 1162,
+    "K": 1114,
+    "L": 1241,
+    "M": 1055,
+    "N": 1151,
+    "O": 1196,
+    "P": 1088,
+    "Q": 1279,
+    "R": 1294,
+    "S": 1199,
+    "T": 1186,
+    "U": 1161,
+    "V": 1082,
+    "W": 1225,
+    "X": 1164,
+    "Y": 1118
+  },
+  "class_imbalance_ratio": 1.352,
+  "out_of_range_labels": 0,
+  "split_strategy": "group",
+  "split_sizes": {
+    "train": 23607,
+    "val": 3848,
+    "test": 7172
+  }
+}

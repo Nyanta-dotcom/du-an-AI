@@ -6,6 +6,10 @@ RAW_DIR = ROOT / "data" / "raw"
 PROCESSED_DIR = ROOT / "data" / "processed"
 REPORTS_DIR = ROOT / "reports"
 FIG_DIR = REPORTS_DIR / "figures"
+MODELS_DIR = ROOT / "models"
+LANDMARK_CSV = RAW_DIR / "landmark" / "keypoint.csv"
+LANDMARK_BUNDLE = MODELS_DIR / "landmark_mlp_bundle.json"
+LANDMARK_METRICS = REPORTS_DIR / "landmark" / "metrics.json"
 
 
 

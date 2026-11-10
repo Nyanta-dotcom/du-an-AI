@@ -4,17 +4,22 @@ Data : keypoint.csv (MIT, Akram Adrane et al., github.com/AkramOM606/American-Si
        + optional CSV files exported from the web app's "Dữ liệu" page (same format).
        Row = label(0-25, A-Z), then 21 x (x, y) relative to the wrist, divided by max |value|,
        measured on a horizontally mirrored camera image. J (9) and Z (25) are dropped (need motion).
-Run  : python train_landmark_mlp.py [extra.csv ...]
-Out  : model_bundle.json (weights + reference poses + samples) and metrics.json
+Run  : python -m src.train_landmark_mlp [extra.csv ...]   (then: python web/build_app.py)
+Out  : models/landmark_mlp_bundle.json (weights + reference poses + samples), reports/landmark/metrics.json
 """
 import sys, json, base64, csv
 from pathlib import Path
+
+if __package__ in (None, ""):  # allow running this file directly
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 import numpy as np
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
 from sklearn.model_selection import train_test_split
 
-HERE = Path(__file__).resolve().parent
+from src import config as C
+
 KEEP = [c for c in range(26) if c not in (9, 25)]
 LETTERS = [chr(65 + c) for c in KEEP]
 REMAP = {o: i for i, o in enumerate(KEEP)}
@@ -46,7 +51,7 @@ def block_split(y, frac=.8):
     return tr
 def mlp(): return MLPClassifier((128, 64), alpha=1e-3, max_iter=150, early_stopping=True, random_state=0)
 
-paths = [HERE / 'keypoint.csv'] + [Path(p) for p in sys.argv[1:]]
+paths = [C.LANDMARK_CSV] + [Path(p) for p in sys.argv[1:]]
 X, y = load(paths); print('samples', X.shape)
 
 # honest evaluation: hold out the LAST 20% of each letter (later recording sessions)
@@ -76,7 +81,7 @@ for c in range(24):
 bundle = {'letters': LETTERS, 'metrics': metrics,
           'layers': [{'W': np.round(W, 5).tolist(), 'b': np.round(b, 5).tolist()} for W, b in zip(final.coefs_, final.intercepts_)],
           'ref': ref, 'demo': demo, 'base': base}
-json.dump(bundle, open(HERE / 'model_bundle.json', 'w'), separators=(',', ':'))
-json.dump(metrics, open(HERE / 'metrics.json', 'w'), indent=2, ensure_ascii=False)
-np.save(HERE / 'check_in.npy', X[:40]); np.save(HERE / 'check_out.npy', final.predict_proba(X[:40]))
-print('bundle KB', (HERE / 'model_bundle.json').stat().st_size // 1024)
+C.LANDMARK_BUNDLE.parent.mkdir(exist_ok=True); C.LANDMARK_METRICS.parent.mkdir(parents=True, exist_ok=True)
+json.dump(bundle, open(C.LANDMARK_BUNDLE, 'w'), separators=(',', ':'))
+json.dump(metrics, open(C.LANDMARK_METRICS, 'w', encoding='utf-8'), indent=2, ensure_ascii=False)
+print('bundle KB', C.LANDMARK_BUNDLE.stat().st_size // 1024)

@@ -1,0 +1,334 @@
+{
+  "chosen": "aug_lr3e-3_do0.3",
+  "chosen_label": "CNN + augment, lr 3e-3",
+  "rows": [
+    {
+      "model": "Logistic Regression (pixels)",
+      "val_f1": 0.7417,
+      "test_acc": 0.6979,
+      "test_f1": 0.6802
+    },
+    {
+      "model": "Random Forest (pixels)",
+      "val_f1": 0.8456,
+      "test_acc": 0.8104,
+      "test_f1": 0.7923
+    },
+    {
+      "model": "MLP 256-128 (pixels)",
+      "val_f1": 0.838,
+      "test_acc": 0.7606,
+      "test_f1": 0.7356
+    },
+    {
+      "model": "Linear SVM (HOG)",
+      "val_f1": 0.937,
+      "test_acc": 0.8859,
+      "test_f1": 0.8803
+    },
+    {
+      "model": "MLP 256-128 (HOG)",
+      "val_f1": 0.9304,
+      "test_acc": 0.9064,
+      "test_f1": 0.8995
+    },
+    {
+      "model": "CNN (không augment)",
+      "val_f1": 0.9379,
+      "test_acc": 0.8936,
+      "test_f1": 0.885
+    },
+    {
+      "model": "CNN + augment",
+      "val_f1": 0.9721,
+      "test_acc": 0.9449,
+      "test_f1": 0.9453
+    },
+    {
+      "model": "CNN + augment, lr 3e-3",
+      "val_f1": 0.9865,
+      "test_acc": 0.9766,
+      "test_f1": 0.9757
+    },
+    {
+      "model": "CNN + augment, dropout 0.5",
+      "val_f1": 0.9143,
+      "test_acc": 0.8879,
+      "test_f1": 0.8859
+    }
+  ],
+  "runs": [
+    {
+      "name": "noaug_lr1e-3_do0.3",
+      "augment": false,
+      "lr": 0.001,
+      "dropout": 0.3,
+      "best_val_macro_f1": 0.9379024012085804,
+      "best_epoch": 11,
+      "params": 208728,
+      "test_acc": 0.8936140546569994,
+      "test_macro_f1": 0.8849649617508929,
+      "ms_per_image": 0.6198095083658597,
+      "epochs_run": 14,
+      "sec_per_epoch": 25.1
+    },
+    {
+      "name": "aug_lr1e-3_do0.3",
+      "augment": true,
+      "lr": 0.001,
+      "dropout": 0.3,
+      "best_val_macro_f1": 0.9720645537260276,
+      "best_epoch": 11,
+      "params": 208728,
+      "test_acc": 0.9449247071946458,
+      "test_macro_f1": 0.9452610943932402,
+      "ms_per_image": 0.6028222453987829,
+      "epochs_run": 14,
+      "sec_per_epoch": 31.1
+    },
+    {
+      "name": "aug_lr3e-3_do0.3",
+      "augment": true,
+      "lr": 0.003,
+      "dropout": 0.3,
+      "best_val_macro_f1": 0.9864863770924946,
+      "best_epoch": 14,
+      "params": 208728,
+      "test_acc": 0.9765755716675962,
+      "test_macro_f1": 0.9757292859410752,
+      "ms_per_image": 0.7467848268265622,
+      "epochs_run": 15,
+      "sec_per_epoch": 34.3
+    },
+    {
+      "name": "aug_lr1e-3_do0.5",
+      "augment": true,
+      "lr": 0.001,
+      "dropout": 0.5,
+      "best_val_macro_f1": 0.9142801748153345,
+      "best_epoch": 11,
+      "params": 208728,
+      "test_acc": 0.8878973786949247,
+      "test_macro_f1": 0.8859260509037105,
+      "ms_per_image": 0.6380753662855714,
+      "epochs_run": 14,
+      "sec_per_epoch": 33.1
+    }
+  ],
+  "baseline_retrained_test_f1": 0.8995,
+  "per_letter_f1_cnn": {
+    "A": 1.0,
+    "B": 1.0,
+    "C": 0.989,
+    "D": 1.0,
+    "E": 0.985,
+    "F": 1.0,
+    "G": 0.99,
+    "H": 0.992,
+    "I": 1.0,
+    "K": 1.0,
+    "L": 1.0,
+    "M": 0.932,
+    "N": 0.924,
+    "O": 0.986,
+    "P": 1.0,
+    "Q": 1.0,
+    "R": 0.922,
+    "S": 1.0,
+    "T": 0.96,
+    "U": 0.962,
+    "V": 0.92,
+    "W": 0.952,
+    "X": 0.966,
+    "Y": 0.939
+  },
+  "per_letter_f1_base": {
+    "A": 0.939,
+    "B": 0.97,
+    "C": 0.936,
+    "D": 0.916,
+    "E": 0.952,
+    "F": 0.986,
+    "G": 0.9,
+    "H": 0.955,
+    "I": 0.954,
+    "K": 0.895,
+    "L": 0.981,
+    "M": 0.855,
+    "N": 0.799,
+    "O": 0.92,
+    "P": 0.997,
+    "Q": 0.982,
+    "R": 0.785,
+    "S": 0.705,
+    "T": 0.842,
+    "U": 0.819,
+    "V": 0.897,
+    "W": 0.802,
+    "X": 0.914,
+    "Y": 0.886
+  },
+  "top_pairs_cnn": [
+    {
+      "true": "N",
+      "pred": "M",
+      "cnn": 0.141,
+      "baseline": 0.082
+    },
+    {
+      "true": "R",
+      "pred": "U",
+      "cnn": 0.139,
+      "baseline": 0.0
+    },
+    {
+      "true": "Y",
+      "pred": "V",
+      "cnn": 0.111,
+      "baseline": 0.0
+    },
+    {
+      "true": "T",
+      "pred": "X",
+      "cnn": 0.077,
+      "baseline": 0.085
+    },
+    {
+      "true": "V",
+      "pred": "W",
+      "cnn": 0.058,
+      "baseline": 0.153
+    },
+    {
+      "true": "M",
+      "pred": "E",
+      "cnn": 0.03,
+      "baseline": 0.063
+    },
+    {
+      "true": "C",
+      "pred": "O",
+      "cnn": 0.023,
+      "baseline": 0.055
+    },
+    {
+      "true": "H",
+      "pred": "G",
+      "cnn": 0.009,
+      "baseline": 0.046
+    }
+  ],
+  "week3_pairs": [
+    {
+      "true": "N",
+      "pred": "S",
+      "baseline": 0.155,
+      "cnn": 0.0
+    },
+    {
+      "true": "V",
+      "pred": "W",
+      "baseline": 0.153,
+      "cnn": 0.058
+    },
+    {
+      "true": "U",
+      "pred": "K",
+      "baseline": 0.132,
+      "cnn": 0.0
+    },
+    {
+      "true": "R",
+      "pred": "S",
+      "baseline": 0.111,
+      "cnn": 0.0
+    },
+    {
+      "true": "S",
+      "pred": "E",
+      "baseline": 0.102,
+      "cnn": 0.0
+    },
+    {
+      "true": "U",
+      "pred": "R",
+      "baseline": 0.09,
+      "cnn": 0.004
+    }
+  ],
+  "n_wrong": 168,
+  "landmark": {
+    "samples": 33536,
+    "block_split_accuracy": 0.8456,
+    "block_split_macro_f1": 0.8611,
+    "random_split_accuracy_no_aug": 0.9331,
+    "per_letter_f1": {
+      "A": 0.791,
+      "B": 0.992,
+      "C": 0.902,
+      "D": 0.897,
+      "E": 0.737,
+      "F": 0.878,
+      "G": 0.7,
+      "H": 0.902,
+      "I": 0.978,
+      "K": 0.87,
+      "L": 0.902,
+      "M": 0.982,
+      "N": 0.911,
+      "O": 0.85,
+      "P": 0.962,
+      "Q": 0.921,
+      "R": 0.765,
+      "S": 0.755,
+      "T": 0.84,
+      "U": 0.531,
+      "V": 0.922,
+      "W": 0.926,
+      "X": 0.884,
+      "Y": 0.868
+    },
+    "top_confusions": [
+      {
+        "true": "U",
+        "pred": "R",
+        "rate": 0.591
+      },
+      {
+        "true": "L",
+        "pred": "G",
+        "rate": 0.151
+      },
+      {
+        "true": "S",
+        "pred": "N",
+        "rate": 0.146
+      },
+      {
+        "true": "E",
+        "pred": "G",
+        "rate": 0.132
+      },
+      {
+        "true": "E",
+        "pred": "F",
+        "rate": 0.101
+      },
+      {
+        "true": "A",
+        "pred": "S",
+        "rate": 0.099
+      },
+      {
+        "true": "G",
+        "pred": "X",
+        "rate": 0.097
+      },
+      {
+        "true": "C",
+        "pred": "Y",
+        "rate": 0.078
+      }
+    ]
+  }
+}

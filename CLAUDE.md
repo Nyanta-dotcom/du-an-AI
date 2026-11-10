@@ -99,5 +99,5 @@ Có thể điều chỉnh, nhưng mỗi câu phải trả lời được bằng 
 
 ## Tài liệu gốc trong thư mục
 
-- `chu de.docx` — mô tả đề tài, tech stack, tiêu chí chấm.
-- `_1st week…` đến `5th week of Artificial Intelligence Project.docx` — yêu cầu trình bày từng tuần.
+- `docs/course/topic.docx` — mô tả đề tài, tech stack, tiêu chí chấm.
+- `docs/course/week1.docx` … `week5.docx` — yêu cầu trình bày từng tuần.

@@ -1,7 +1,27 @@
-data/raw/
-data/processed/
-models/*.pt
+# Python
 __pycache__/
-.venv/
 *.pyc
+.venv/
 .ipynb_checkpoints/
+
+# Data: download instructions in data/README.md
+data/*
+!data/README.md
+*.zip
+
+# Training outputs that can be regenerated
+models/*.pt
+reports/week4/*.npy
+
+# Web: MediaPipe model downloaded for offline use
+web/models/*.task
+
+# Editors / OS / Office
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+~$*
+
+# Secrets
+.env

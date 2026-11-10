@@ -28,19 +28,18 @@ Không có camera: dùng nút **Mô phỏng**, app lấy một mẫu điểm kh�
 
 ## Mô hình
 
-- Dữ liệu: `landmark/keypoint.csv` (33.536 mẫu sau khi bỏ J, Z), từ dự án American-Sign-Language-Detection của Akram Adrane, Othmane Daoudi, Yassir Hakkou, giấy phép MIT (`landmark/LICENSE_dataset_MIT.md`).
+- Dữ liệu: `data/raw/landmark/keypoint.csv` (33.536 mẫu sau khi bỏ J, Z), từ dự án American-Sign-Language-Detection của Akram Adrane, Othmane Daoudi, Yassir Hakkou, giấy phép MIT (`data/raw/landmark/LICENSE_dataset_MIT.md`).
 - Đặc trưng: 21 điểm (x, y) theo pixel trên ảnh lật gương, trừ toạ độ cổ tay, chia cho giá trị tuyệt đối lớn nhất → 42 số.
 - Huấn luyện: lật gương (nhận cả tay trái và tay phải) + xoay ngẫu nhiên ±15°; MLP 42 → 128 → 64 → 24 (scikit-learn).
 - Đánh giá trung thực: giữ lại 20% dữ liệu **thu sau cùng** của mỗi chữ → accuracy **84,6%**, macro-F1 **0,861**.
   Chia ngẫu nhiên cho 93,3% nhưng bị rò rỉ dữ liệu giữa các phiên thu. Không lật gương thì chỉ còn 58,1%.
 - Cặp nhầm nhiều nhất: U → R (59%), vì bắt chéo ngón khó thấy trên toạ độ 2D.
 
-Huấn luyện lại (có thể thêm CSV xuất từ trang Dữ liệu):
+Huấn luyện lại (chạy từ thư mục gốc dự án, có thể thêm CSV xuất từ trang Dữ liệu):
 
 ```bash
-pip install numpy scikit-learn
-python landmark/train_landmark_mlp.py [taynoi_samples.csv ...]
-python build_app.py
+python -m src.train_landmark_mlp [taynoi_samples.csv ...]   # -> models/landmark_mlp_bundle.json
+python web/build_app.py                                     # nhúng mô hình vào web/index.html
 ```
 
 ## Giới hạn

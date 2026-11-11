@@ -30,7 +30,6 @@ NGŨ ĐẠI HÀO KIỆT
                .-++-+++++++++++++++++++++++++#########+#+++++++----.-++++++++++++-+-
         ..----+-+++++##++++++++++++##+++++++###############++++++++---+++++++++++++-
      ..----++++-+++++##+++++++++++++++++++#+##################++++++---+++++++++++++
-####################################################################################
 # Real-time Sign Language Alphabet Recognition
 
 AI course final project: a web app that recognises the ASL alphabet from a webcam in real time ("Duolingo for sign language").
